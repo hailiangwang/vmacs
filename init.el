@@ -98,6 +98,7 @@
   (recentf-mode 1)
   (run-with-idle-timer 10 t 'vmacs-idle-timer) ;idle 300=5*60s
   (require 'conf-tmp nil t)
+  (require 'conf-vterm)
   (when (eq system-type 'darwin) (exec-path-from-shell-initialize)))
 
 
