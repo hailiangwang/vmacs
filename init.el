@@ -90,7 +90,6 @@
 (require 'conf-sql)
 
 (when (vmacs-not-dumping-p)
-  ;; (require 'conf-vterm)
   (global-undo-tree-mode t)
   (global-font-lock-mode)
   (transient-mark-mode 1)
