@@ -35,7 +35,9 @@ dump: clean update-autoload-cookie
 	@ln -sf  `pwd`/pre-push .git/hooks/
 	@-pkill  -f dump-emacs-portable
 	@mkdir -p ~/.emacs.d/cache/dump/
-	emacs --batch -l ~/.emacs.d/dump-init.el  -eval '(dump-emacs-portable "~/.emacs.d/cache/dump/emacs.pdump")'
+	emacs --batch -l ~/.emacs.d/dump-init.el  -eval '(dump-emacs-portable "~/.emacs.d/cache/dump/emacs_tmp.pdump")'
+	@cp -f ~/.emacs.d/cache/dump/emacs_tmp.pdump ~/.emacs.d/cache/dump/emacs.pdump
+
 
 eshell:
 	./bin/zsh-to-eshell-alias.sh
