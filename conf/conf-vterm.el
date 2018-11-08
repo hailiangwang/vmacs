@@ -6,4 +6,8 @@
 ;; make
 (require 'vterm)
 
+(defun vmacs-vterm-hook()
+  )
+(add-hook 'vterm-mode-hook 'vmacs-vterm-hook)
+
 (provide 'conf-vterm)

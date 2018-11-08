@@ -7,22 +7,23 @@
 
 
 ;; nil表示默认打开eshell ,t表示默认打开term
-(defcustom vmacs-eshell-default-term t
+(defcustom vmacs-eshell-default-term "vterm"
   ""
-  :type 'boolean
+  :type 'string
   :group 'vmacs-eshell)
 (defvar vmacs-window-configration nil)
 
 ;;;###autoload
 (defun vmacs-eshell-term-new (&optional args)
   (interactive "P")
-  (if (>  (prefix-numeric-value args) 1)
-      (if vmacs-eshell-default-term
-          (vmacs-eshell-new)
-        (vmacs-term-new))
-    (if vmacs-eshell-default-term
-        (vmacs-term-new)
-      (vmacs-eshell-new))))
+  (cond
+   ((string-equal vmacs-eshell-default-term "vterm")
+    (vterm))
+   ((string-equal vmacs-eshell-default-term "eshell")
+    (vmacs-eshell-new))
+   ((string-equal vmacs-eshell-default-term "term")
+    (vmacs-term-new))))
+
 
 ;;;###autoload
 (defun vmacs-eshell-new()
